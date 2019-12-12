@@ -8,7 +8,9 @@ services:
             - backend
         networks:
             - network1
-        #remember port    
+        #remember port
+        ports:
+            "443:443"
     
     backend:
         build: ./backend
