@@ -1,8 +1,7 @@
 
-version: "3.7"
+version: "3"
 
 services:
-
     proxy:
         build: ./proxy
         depends_on:
@@ -22,16 +21,14 @@ services:
         networks:
             - network1
             - network2
-            
+
     database:
         build: ./database
         networks:
             network2
 
 networks:
-    
     network1:
-        name: network1
-    
+        name: network1  
     network2:
         name: network2
