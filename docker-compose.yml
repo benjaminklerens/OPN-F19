@@ -25,10 +25,10 @@ services:
     database:
         build: ./database
         networks:
-            network2
+            'network2'
 
 networks:
     network1:
-        name: network1  
+        name: 'network1'  
     network2:
-        name: network2
+        name: 'network2'
