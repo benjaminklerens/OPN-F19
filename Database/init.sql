@@ -2,10 +2,8 @@ CREATE DATABASE opnexam2019;
 
 USE opnexam2019;
 
-DROP TABLE persons;
-
 CREATE TABLE persons (
-	PersonID INT IDENTITY(1,1) NOT NULL,
+	PersonID int NOT NULL AUTO_INCREMENT,
 	Firstname TEXT NOT NULL,
 	Lastname TEXT NOT NULL,
 	PRIMARY KEY (PersonID)

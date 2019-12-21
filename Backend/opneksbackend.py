@@ -29,9 +29,8 @@ def post():
 	mycursor.execute(sql, val)
 	
 	dbc.commit()
-	dbc.close()
-	
-	return (dbc.cursor().rowcount, " record inserted")
+		
+	return ("1 record inserted")
 	
 @app.route("/persons", methods = ['get'])
 def get():
