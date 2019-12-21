@@ -40,7 +40,7 @@ def GET():
 	array = []
 	dict = {}
 	
-	for opnexam2019 in result
+	for opnexam2019 in result:
 		dict = { 'PersonID': opnexam2019[0], 'Firstname': opnexam2019[1], 'Lastname': opnexam2019[2] }
 		array.append(dict)
 		dict = {}
