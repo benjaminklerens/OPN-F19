@@ -1,5 +1,5 @@
 FROM mysql:5.6
-COPY init.sql init.sql
+COPY *.sql /docker-entrypoint-initdb.d/
 
-ENV MYSQL_ROOT_PASSWORD=03051996
-ENV MYSQL_DATABASE=opnexam2019
+ENV MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
