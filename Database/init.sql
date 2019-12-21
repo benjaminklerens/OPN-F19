@@ -1,9 +1,9 @@
-CREATE DATABASE opnexam2019
+CREATE DATABASE opnexam2019;
 
-USE opnexam2019
+USE opnexam2019;
 
-CREATE TABLE persons {
-	PersonID int UNSIGNED AUTO_INCREMENT PRIMARY_KEY,
-	Firstname text NOT NULL,
-	Lastname text NOT NULL
-}
+CREATE TABLE persons (
+	PersonID INTEGER AUTO_INCREMENT PRIMARY_KEY,
+	Firstname TEXT NOT NULL,
+	Lastname TEXT NOT NULL
+)
