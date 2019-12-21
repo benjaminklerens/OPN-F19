@@ -24,6 +24,8 @@ services:
         build: ./Database
         networks:
            - network2
+        ports:
+            - "3306:3306"
 
 networks:
     network1:  
