@@ -1,5 +1,4 @@
 version: "3"
-
 services:
     proxy:
         build: ./Proxy
@@ -15,7 +14,7 @@ services:
         depends_on:
             - database
         ports:
-            - "2025:2025"
+            - "5001:5001"
         networks:
             - network1
             - network2
@@ -24,9 +23,7 @@ services:
         build: ./Database
         networks:
            - network2
-        ports:
-            - "3306:3306"
 
 networks:
-    network1:  
-    network2:
+ network1:
+ network2:

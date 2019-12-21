@@ -5,22 +5,28 @@ import mysql.connector
 # Create Flask instance
 app = Flask(__name__)
 
+# database vars
+hostname = 'localhost'
+username = 'root'
+password = '12345'
+database = 'opnexam2019'
+
 # MYSQL_connector connection
-def mysql_connect():
+def db_conn():
 	# Connect to db
-	db = mysql.connector.connect(
-		host='localhost',
-		database='opnexam2019',
-		user='root',
-		passwd='12345'
-)
+	db = mysql.connector.connect( host=hostname, user=username, passwd=password, db=database )
 	return db;
+
+# TEST method
+@app.route("/hello")
+def hello():
+	return  "<h1 style='color:blue'>Hello</h1>"
 	
 # POST method
-@app.route('/person', methods = ['POST'])
-def POST():
+@app.route("/person", methods = ['post'])
+def post():
 	# Post/Insert into db
-	dbc = mysql_connect()
+	dbc =db_conn()
 	sql = "INSERT INTO persons (Firstname, Lastname) VALUES (%s, %s)"
 	val = (request.form[firstname], request.form[lastname])
 	
@@ -29,11 +35,11 @@ def POST():
 	
 	return (dbc.cursor().rowcount, " record inserted")
 	
-@app.route('/persons', methods = ['GET'])
-def GET():
+@app.route("/persons", methods = ['get'])
+def get():
 
 	# Fetch data from db
-	dbc = mysql_connect()
+	dbc = db_conn()
 	sql = "SELECT * FROM persons"
 	dbc.cursor().execute(sql)
 	result = dbc.cursor().execute().fetchall
@@ -50,8 +56,9 @@ def GET():
 	return jsonify(array)
 	
 	
-if __name__ == '__main__':
-	app.run(debug=true, port=2025)
+if __name__ == "__main__":
+ dprint("Running App")
+ app.run(port=5001, debug=True)
 	
 	
 	
