@@ -1,3 +1,5 @@
 FROM mysql:5.6
 COPY init.sql init.sql
+
 ENV MYSQL_ROOT_PASSWORD=03051996
+ENV MYSQL_DATABASE=opnexam2019
