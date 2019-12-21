@@ -22,11 +22,14 @@ def db_conn():
 def post():
 	# Post/Insert into db
 	dbc = db_conn()
+	mycursor = dbc.cursor()
 	sql = "INSERT INTO persons (Firstname, Lastname) VALUES (%s, %s)"
-	val = (request.form[firstname], request.form[lastname])
+	val = (request.form['firstname'], request.form['lastname'])
 	
-	dbc.cursor().execute(sql,val)
+	mycursor.execute(sql, val)
+	
 	dbc.commit()
+	dbc.close()
 	
 	return (dbc.cursor().rowcount, " record inserted")
 	
@@ -35,9 +38,10 @@ def get():
 
 	# Fetch data from db
 	dbc = db_conn()
+	mycursor = dbc.cursor()
 	sql = "SELECT * FROM persons"
-	dbc.cursor().execute(sql)
-	result = dbc.cursor().execute().fetchall
+	rows = mycursor.execute(sql)
+	result = mycursor.fetchall()
 	
 	# Initialize array and dictionary
 	array = []
