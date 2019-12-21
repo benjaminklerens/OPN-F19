@@ -1,9 +1,9 @@
 FROM python:3
 ENV FLASK_APP opneksbackend.py
 ENV FLASK_RUN_HOST 0.0.0.0
-
+EXPOSE 5000
 RUN pip3 install Flask
 RUN pip3 install mysql-connector-python==8.0.18
 
 COPY opneksbackend.py opneksbackend.py
-CMD [ "flask", "run"]
+CMD [ "flask", "opneksbackend.py"]
