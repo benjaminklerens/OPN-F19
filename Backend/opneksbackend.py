@@ -9,9 +9,11 @@ app = Flask(__name__)
 def mysql_connect():
 	# Connect to db
 	db = mysql.connector.connect(
-		host='database',
+		host='localhost',
 		database='opnexam2019',
-		user='root')
+		user='root',
+		passwd='12345'
+)
 	return db;
 	
 # POST method
@@ -49,7 +51,7 @@ def GET():
 	
 	
 if __name__ == '__main__':
-	app.run(debug=true, port=2025))
+	app.run(debug=true, port=2025)
 	
 	
 	
