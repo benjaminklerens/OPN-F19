@@ -14,19 +14,14 @@ database = 'opnexam2019'
 # MYSQL_connector connection
 def db_conn():
 	# Connect to db
-	db = mysql.connector.connect( host=hostname, user=username, passwd=password, db=database )
+	db = mysql.connector.connect(host=hostname, user=username, passwd=password, db=database)
 	return db;
-
-# TEST method
-@app.route("/hello")
-def hello():
-	return  "<h1 style='color:blue'>Hello</h1>"
 	
 # POST method
 @app.route("/person", methods = ['post'])
 def post():
 	# Post/Insert into db
-	dbc =db_conn()
+	dbc = db_conn()
 	sql = "INSERT INTO persons (Firstname, Lastname) VALUES (%s, %s)"
 	val = (request.form[firstname], request.form[lastname])
 	
@@ -57,8 +52,8 @@ def get():
 	
 	
 if __name__ == "__main__":
- dprint("Running App")
- app.run(port=5001, debug=True)
+ print("Running App")
+ app.run(port=5000, debug=True)
 	
 	
 	
