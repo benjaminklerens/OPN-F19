@@ -7,4 +7,4 @@ CREATE TABLE persons (
 	Firstname TEXT NOT NULL,
 	Lastname TEXT NOT NULL,
 	PRIMARY KEY (PersonID)
-)
+);
