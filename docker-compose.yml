@@ -15,7 +15,7 @@ services:
         depends_on:
             - database
         ports:
-            - "5000:5000"
+            - "2025:2025"
         networks:
             - network1
             - network2
